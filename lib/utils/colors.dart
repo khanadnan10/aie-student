@@ -7,6 +7,7 @@ class AppColor {
   static const Color kGrey = Color(0xff707070);
   static const Color kBlack = Color(0xff000000);
   static const Color kOceanBlue = Color(0xff44C2E1);
+  static const Color kGreen = Color(0xff10E888);
 
   //Gradients ============================================
 

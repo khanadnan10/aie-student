@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:student_ui/feature/homeworktype/widgets/homework_type_appbar.dart';
@@ -10,14 +11,17 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
   final Gradient? gradient;
   final String? text;
   final VoidCallback onIconTap;
+  final bool? boxRequired;
   const CommonAppbar({
     Key? key,
-    this.title,
-    this.subTitle,
-    this.image,
-    this.gradient,
+    this.title, // Accessable after enabling boxRequires
+    this.subTitle, // Accessable after enabling boxRequires
+    this.image, // Accessable after enabling boxRequires
+    this.gradient, // Accessable after enabling boxRequires
     this.text,
     required this.onIconTap,
+    this.boxRequired =
+        true, // Enable this if required the container having image and text
   }) : super(key: key);
 
   @override
@@ -32,12 +36,14 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
           fontWeight: FontWeight.w700,
         ),
       ),
-      flexibleSpace: homeworkTypeAppbar(
-        title: title,
-        subTitle: subTitle,
-        gradient: gradient,
-        image: image ?? const AssetImage(''),
-      ),
+      flexibleSpace: boxRequired == true
+          ? homeworkTypeAppbar(
+              title: title,
+              subTitle: subTitle,
+              gradient: gradient,
+              image: image,
+            )
+          : null,
       centerTitle: true,
       leading: GestureDetector(
         onTap: onIconTap, // Navigator
@@ -61,7 +67,8 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 80);
+  Size get preferredSize =>
+      Size.fromHeight(kToolbarHeight + (boxRequired == true ? 80 : 10));
 
   @override
   // TODO: implement child

@@ -21,6 +21,10 @@ class AppFont {
     fontSize: 20.0,
     fontWeight: FontWeight.w700,
   );
+  static const TextStyle kTopicLiteTextStyle = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.w500,
+  );
   static const TextStyle kLargeTopicTextStyle = TextStyle(
     fontSize: 24.0,
     fontWeight: FontWeight.w700,

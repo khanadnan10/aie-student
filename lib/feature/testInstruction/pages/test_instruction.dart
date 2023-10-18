@@ -95,19 +95,15 @@ class _TestInstructionState extends State<TestInstruction> {
                 ),
               ),
               Utils().sizedBox,
-              SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 1,
-                  itemBuilder: (context, index) => CommonTitleBodyText(
-                    title: aboutHomework[index]['title'],
-                    body: aboutHomework[index]['body'],
-                  ),
+              ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 1,
+                itemBuilder: (context, index) => CommonTitleBodyText(
+                  title: aboutHomework[index]['title'],
+                  body: aboutHomework[index]['body'],
                 ),
               ),
-              // Utils().sizedBox,
             ],
           ),
         ),

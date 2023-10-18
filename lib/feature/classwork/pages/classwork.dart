@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_ui/feature/classwork/pages/homework.dart';
 import 'package:student_ui/feature/classwork/widgets/classwork_appbar.dart';
 import 'package:student_ui/feature/classwork/widgets/classwork_toggle_switch.dart';
+import 'package:student_ui/feature/gradecard/pages/grade_card.dart';
 import 'package:student_ui/feature/testPage/pages/test.dart';
 import 'package:student_ui/utils/colors.dart';
 
@@ -18,7 +19,7 @@ class _ClassworkState extends State<Classwork> {
   List<Widget> classworkScreens = [
     const Homework(),
     const Test(),
-    const Center(child: Text('Gradecard')),
+    const GradeCard(),
   ];
 
   @override
