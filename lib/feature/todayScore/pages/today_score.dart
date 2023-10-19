@@ -8,14 +8,14 @@ import 'package:student_ui/feature/commulative/widgets/all_subject_card.dart';
 import 'package:student_ui/utils/fonts.dart';
 import 'package:student_ui/utils/utils.dart';
 
-class Commulative extends StatefulWidget {
-  const Commulative({super.key});
+class TodayScore extends StatefulWidget {
+  const TodayScore({super.key});
 
   @override
-  State<Commulative> createState() => _CommulativeState();
+  State<TodayScore> createState() => _TodayScoreState();
 }
 
-class _CommulativeState extends State<Commulative> {
+class _TodayScoreState extends State<TodayScore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _CommulativeState extends State<Commulative> {
           // Navigate to previous page ---------
           Navigator.pop(context);
         },
-        text: 'Grade card',
+        text: 'Grade Card',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

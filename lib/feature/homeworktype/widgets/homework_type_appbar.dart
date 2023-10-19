@@ -8,6 +8,7 @@ Widget homeworkTypeAppbar({
   String? title,
   ImageProvider<Object>? image,
   Gradient? gradient,
+  bool? backgroundImage = false,
 }) {
   return Container(
     width: double.infinity,
@@ -17,6 +18,14 @@ Widget homeworkTypeAppbar({
         bottomRight: Radius.circular(24),
         bottomLeft: Radius.circular(24),
       ),
+      image: backgroundImage == true
+          ? const DecorationImage(
+              image: AssetImage(
+                'images/image 34.png',
+              ),
+              fit: BoxFit.cover,
+            )
+          : null,
       gradient: gradient ??
           const LinearGradient(
             colors: [
@@ -44,7 +53,7 @@ Widget homeworkTypeAppbar({
               ),
               Text(
                 title ?? '',
-                style: AppFont.kLargeTopicTextStyle.copyWith(
+                style: AppFont.kLargeTopic24TextStyle.copyWith(
                   color: AppColor.kWhite,
                 ),
               ),

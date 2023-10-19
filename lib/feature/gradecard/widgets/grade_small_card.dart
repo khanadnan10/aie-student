@@ -55,7 +55,7 @@ class GradeSmallCard extends StatelessWidget {
                     '$percent%',
                     softWrap: true,
                     textAlign: TextAlign.start,
-                    style: AppFont.kLargeTopicTextStyle.copyWith(
+                    style: AppFont.kLargeTopic24TextStyle.copyWith(
                       color: AppColor.kWhite,
                       fontSize: 40.0,
                     ),

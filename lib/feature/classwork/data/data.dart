@@ -2,7 +2,7 @@ List<Map<String, dynamic>> pendingHomework = [
   {
     'subjectName': 'Science',
     'sent': '14/09/2022',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
     'homeworkbody':
         'Write the parts of the digestive system expalining thr functions ',
   },
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> submittedHomework = [
   {
     'subjectName': 'Science',
     'sent': '14/09/2022',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
     'homeworkbody':
         'Write the parts of the digestive system expalining thr functions ',
     'marks': '10',
@@ -38,7 +38,7 @@ List<Map<String, dynamic>> resumeHomework = [
   {
     'subjectName': 'Science',
     'sent': '14/09/2022',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
     'homeworkbody':
         'Write the parts of the digestive system expalining thr functions ',
     'percent': 35.0,
@@ -48,15 +48,15 @@ List<Map<String, dynamic>> resumeHomework = [
 List<Map<String, dynamic>> topics = [
   {
     'subjectName': 'Science',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
   },
   {
     'subjectName': 'Science',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
   },
   {
     'subjectName': 'Science',
-    'homeworkTitle': 'Digistive system',
+    'homeworkTitle': 'Digestive system',
   },
 ];
 //Practice Similar Concepts Data

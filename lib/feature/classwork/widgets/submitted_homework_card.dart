@@ -74,7 +74,7 @@ class SubmittedHomeworkCard extends StatelessWidget {
                           children: [
                             Text(
                               '$marks/10',
-                              style: AppFont.kLargeTopicTextStyle.copyWith(
+                              style: AppFont.kLargeTopic24TextStyle.copyWith(
                                 color: AppColor.kWhite,
                               ),
                             ),

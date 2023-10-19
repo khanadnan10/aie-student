@@ -12,16 +12,18 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
   final String? text;
   final VoidCallback onIconTap;
   final bool? boxRequired;
+  final bool? isBackgroundImage;
   const CommonAppbar({
     Key? key,
-    this.title, // Accessable after enabling boxRequires
-    this.subTitle, // Accessable after enabling boxRequires
-    this.image, // Accessable after enabling boxRequires
-    this.gradient, // Accessable after enabling boxRequires
+    // Enable this if required the container having image and text
+    this.title,
+    this.subTitle,
+    this.image,
+    this.gradient,
     this.text,
     required this.onIconTap,
-    this.boxRequired =
-        true, // Enable this if required the container having image and text
+    this.boxRequired = true,
+    this.isBackgroundImage = false,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
               subTitle: subTitle,
               gradient: gradient,
               image: image,
+              backgroundImage: isBackgroundImage,
             )
           : null,
       centerTitle: true,

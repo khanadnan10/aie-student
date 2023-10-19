@@ -59,7 +59,7 @@ class _HomeworkTypeState extends State<HomeworkType> {
               ),
               Utils().sizedBox,
               const Text(
-                'Digistive system',
+                'Digestive system',
                 style: AppFont.kTopicTextStyle,
               ),
               Utils().sizedBox,

@@ -8,12 +8,17 @@ class AppColor {
   static const Color kBlack = Color(0xff000000);
   static const Color kOceanBlue = Color(0xff44C2E1);
   static const Color kGreen = Color(0xff10E888);
+  static const Color kBlue = Color(0xff0066FF);
 
   //Gradients ============================================
 
   static LinearGradient kPinkGradient = const LinearGradient(colors: [
     Color(0xffF63A7D),
     Color(0xffFE786F),
+  ]);
+  static LinearGradient kReversePinkGradient = const LinearGradient(colors: [
+    Color(0xffFE786F),
+    Color(0xffF63A7D),
   ]);
   static LinearGradient kYelloGradient = const LinearGradient(colors: [
     Color(0xffFF8A00),
