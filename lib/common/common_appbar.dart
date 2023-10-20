@@ -13,6 +13,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
   final VoidCallback onIconTap;
   final bool? boxRequired;
   final bool? isBackgroundImage;
+  final Color? leadingColor;
   const CommonAppbar({
     Key? key,
     // Enable this if required the container having image and text
@@ -24,6 +25,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
     required this.onIconTap,
     this.boxRequired = true,
     this.isBackgroundImage = false,
+    this.leadingColor,
   }) : super(key: key);
 
   @override
@@ -34,6 +36,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
       title: Text(
         text ?? '',
         style: const TextStyle(
+          color: AppColor.kGrey,
           fontSize: 16.0,
           fontWeight: FontWeight.w700,
         ),
@@ -57,9 +60,9 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
               color: AppColor.kWhite,
               shape: BoxShape.circle,
             ),
-            child: const Icon(
+            child: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: AppColor.kOceanBlue,
+              color: leadingColor ?? AppColor.kOceanBlue,
             ),
           ),
         ),

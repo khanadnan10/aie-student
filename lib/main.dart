@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:student_ui/feature/commulative/pages/commulative.dart';
 import 'package:student_ui/feature/commulative/pages/commulative_subject.dart';
+import 'package:student_ui/feature/gradeSummary/pages/grade_summary.dart';
+import 'package:student_ui/feature/subject/pages/archive_subject.dart';
+import 'package:student_ui/feature/subject/pages/commulative_subject_extra.dart';
 import 'package:student_ui/feature/todayScore/pages/today_score.dart';
 
 void main() {
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
         useMaterial3: true,
       ),
-      home: const TodayScore(),
+      home: const GradeSummary(),
     );
   }
 }

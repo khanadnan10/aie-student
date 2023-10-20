@@ -1,10 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:student_ui/common/common_appbar.dart';
-import 'package:student_ui/feature/commulative/data/all_subject.dart';
 import 'package:student_ui/feature/commulative/widgets/achievement_message_card.dart';
-import 'package:student_ui/feature/commulative/widgets/all_subject_card.dart';
+import 'package:student_ui/feature/todayScore/data/data.dart';
+import 'package:student_ui/feature/todayScore/widgets/all_subject_card.dart';
 import 'package:student_ui/utils/fonts.dart';
 import 'package:student_ui/utils/utils.dart';
 
@@ -54,17 +52,6 @@ class _TodayScoreState extends State<TodayScore> {
               ),
               Utils().sizedBox,
               const Text(
-                'Subject performance graph',
-                style: AppFont.kHeadingTextStyle,
-              ),
-              Utils().sizedBox,
-              // Line chart representation of grades
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(child: Text('Line Chart')),
-              ),
-              Utils().sizedBox,
-              const Text(
                 'All Subject',
                 style: AppFont.kHeadingTextStyle,
               ),
@@ -72,18 +59,18 @@ class _TodayScoreState extends State<TodayScore> {
               Utils().sizedBox,
               GridView.builder(
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 10,
                   crossAxisSpacing: 10,
                 ),
-                itemCount: allSubjectData.length,
+                itemCount: todayScoreData.length,
                 itemBuilder: (context, index) {
-                  return AllSubjectCard(
-                    subject: allSubjectData[index]['subject'],
-                    marks: allSubjectData[index]['marks'],
-                    percent: allSubjectData[index]['percent'],
+                  return AllSubjectGradeCard(
+                    subject: todayScoreData[index]['subject'],
+                    marks: todayScoreData[index]['marks'],
+                    assignment: todayScoreData[index]['assignment'],
                   );
                 },
               ),

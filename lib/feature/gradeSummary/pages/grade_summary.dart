@@ -1,47 +1,41 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradient_circular_progress_indicator/gradient_circular_progress_indicator.dart';
-
 import 'package:student_ui/common/common_appbar.dart';
 import 'package:student_ui/common/common_floating_button.dart';
 import 'package:student_ui/common/enum.dart';
-import 'package:student_ui/feature/commulative/data/performance.dart';
-import 'package:student_ui/feature/commulative/data/scoresmallcard.dart';
 import 'package:student_ui/feature/commulative/data/suggestion.dart';
 import 'package:student_ui/feature/commulative/widgets/score_small_card.dart';
 import 'package:student_ui/feature/commulative/widgets/suggestion_text.dart';
 import 'package:student_ui/feature/commulative/widgets/total_grade_gradient_text.dart';
 import 'package:student_ui/feature/commulative/widgets/type_indicator.dart';
+import 'package:student_ui/feature/gradeSummary/data/data.dart';
 import 'package:student_ui/utils/colors.dart';
 import 'package:student_ui/utils/fonts.dart';
 import 'package:student_ui/utils/utils.dart';
 
-class CommulativeSubject extends StatefulWidget {
-  const CommulativeSubject({super.key});
+class GradeSummary extends StatefulWidget {
+  const GradeSummary({super.key});
 
   @override
-  State<CommulativeSubject> createState() => _CommulativeSubjectState();
+  State<GradeSummary> createState() => _GradeSummaryState();
 }
 
-class _CommulativeSubjectState extends State<CommulativeSubject> {
+class _GradeSummaryState extends State<GradeSummary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppbar(
+        leadingColor: AppColor.kPurple,
+        boxRequired: false,
         onIconTap: () {
-          // Navigating to previous page
+          // Navigate to previous page ---------
           Navigator.pop(context);
         },
-        boxRequired: true,
-        gradient: AppColor.kReverseSkyGradient,
-        isBackgroundImage: true,
-        image: const AssetImage(
-          'images/juicy-young-man-looks-at-his-watch-during-an-exam 1.png',
-        ),
-        title: 'English',
+        text: 'Grade Summary',
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -63,70 +57,42 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                     fit: BoxFit.cover,
                   ),
                   TotalGradeGradientText(
-                    outOfMarks: '200',
-                    marksObtained: '180',
+                    marksObtained: '8',
+                    outOfMarks: '10',
                   ),
                 ],
               ),
               Utils().sizedBox,
-
               //Score small card
               ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: scoresmallcardData.length,
+                itemCount: scoreData.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return ScoreSmallCard(
-                      scoreCardType: ScoreCard.text,
-                      title: scoresmallcardData[index]['title'],
-                      onTap: () {
-                        //TODO: Navigate to the type of score card
-                      },
-                      subTitle: 'View all',
-                      marks: scoresmallcardData[index]['marks']);
+                    scoreCardType: ScoreCard.icon,
+                    gradient: AppColor.kPinkGradient,
+                    icon: const Icon(
+                      Icons.keyboard_arrow_right_rounded,
+                      size: 40.0,
+                      color: AppColor.kWhite,
+                    ),
+                    title: scoreData[index]['title'],
+                    subTitle: 'View Answer Key',
+                    onTap: () {
+                      //TODO: View answer key for the score card summary
+                    },
+                  );
                 },
               ),
-              // Performance graph -----------------------------------------------
               Utils().sizedBox,
+              // Performace % ---------------------------------------
               const Text(
-                'Performance graph',
-                style: AppFont.kHeadingTextStyle,
-              ),
-              // bar chart representation of grades
-              Text(
-                'Your daily performance graph',
-                style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
-              ),
-              Utils().sizedBox,
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(child: Text('Line Chart')),
-              ),
-              // your monthly performance graph ----------------------------------
-              Utils().sizedBox,
-              Text(
-                'Your daily performance graph',
-                style: AppFont.kBodyTextStyle.copyWith(
-                  color: AppColor.kGrey,
-                ),
-              ),
-              Utils().sizedBox,
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(
-                  child: Text(
-                    'Line Chart',
-                  ),
-                ),
-              ),
-              Utils().sizedBox,
-              // Performace in MCQ types ---------------------------------------
-              const Text(
-                'Performace in MCQ types',
+                'Performace %',
                 style: AppFont.kHeadingTextStyle,
               ),
               Text(
-                'Check your performace in MCQ based questions',
+                'Check your performace % on this homework',
                 style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
               ),
               Utils().sizedBox,
@@ -137,14 +103,14 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                   Flexible(
                     child: GradientCircularProgressIndicator(
                       size: 100.0,
-                      progress: progress1 /
+                      progress: performancePercentage /
                           100, // Specify the progress value in percent
                       gradient: AppColor.kReverseSkyGradient,
                       backgroundColor: Colors.grey
                           .withOpacity(0.3), // Specify the background color
                       child: Center(
                         child: Text(
-                          '${progress1.toInt()}%',
+                          '${performancePercentage.toInt()}%',
                           style: AppFont.kLargeTopic24TextStyle.copyWith(
                             fontSize: 32.0,
                           ),
@@ -152,20 +118,22 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                       ), // Optional child widget
                     ),
                   ),
-                  // Details for thec circular bar -----------------------------------
+                  // Details for the circular bar -----------------------------------
                   Flexible(
                     child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: performance1.length,
+                      itemCount: performancePercentageData.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 5),
                           child: TypeIndicator(
-                            count: performance1[index]['count'],
-                            text: performance1[index]['text'],
-                            indicationColor: (performance1[index]['text'])
+                            count: performancePercentageData[index]['count'],
+                            text: performancePercentageData[index]['text'],
+                            indicationColor: (performancePercentageData[index]
+                                        ['text'])
                                     .toString()
-                                    .contains('answers')
+                                    .contains(
+                                        'Obtained') // If the marks is of obtainer marks then the colored should be changed to blue for indication
                                 ? const Color(0xff1D7DE7)
                                 : AppColor.kGrey.withOpacity(0.3),
                           ),
@@ -176,14 +144,13 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 ],
               ),
               Utils().sizedBox,
-              Utils().sizedBox,
-              // Performace in Objective types ---------------------------------------
+              // Your efficiency---------------------------------------
               const Text(
-                'Performace in Objective types',
+                'Your efficiency',
                 style: AppFont.kHeadingTextStyle,
               ),
               Text(
-                'Check your performace in objective based questions',
+                'Time analysis for each attempt',
                 style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
               ),
               Utils().sizedBox,
@@ -191,40 +158,28 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   // Circular progress bar -----------------------------------
-                  Flexible(
-                    child: GradientCircularProgressIndicator(
-                      size: 100.0,
-                      progress: (progress2 /
-                          100), // Specify the progress value in percent
-                      gradient: AppColor.kReverseSkyGradient,
-                      backgroundColor: Colors.grey
-                          .withOpacity(0.3), // Specify the background color
-                      child: Center(
-                        child: Text(
-                          '${progress2.toInt()}%',
-                          style: AppFont.kLargeTopic24TextStyle.copyWith(
-                            fontSize: 32.0,
-                          ),
-                        ),
-                      ), // Optional child widget
+                  const Flexible(
+                    child: SizedBox(
+                      height: 120.0,
+                      child: Image(
+                        image: AssetImage('images/business-3d-red-clock 1.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                  // Details for thec circular bar -----------------------------------
+                  // Details for the efficiency bar ----------------------------
                   Flexible(
                     child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: performance2.length,
+                      itemCount: yourEfficiencyData.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 5),
                           child: TypeIndicator(
-                            count: performance2[index]['count'],
-                            text: performance2[index]['text'],
-                            indicationColor: (performance2[index]['text'])
-                                    .toString()
-                                    .contains('answers')
-                                ? const Color(0xff1D7DE7)
-                                : AppColor.kGrey.withOpacity(0.3),
+                            includeColor: IncludeColor.no,
+                            count:
+                                '${yourEfficiencyData[index]['count'] + ' min'}',
+                            text: '${yourEfficiencyData[index]['text']}',
                           ),
                         );
                       },
@@ -233,6 +188,76 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 ],
               ),
               Utils().sizedBox,
+              // Accuracy --------------------------------------
+              const Text(
+                'Accuracy',
+                style: AppFont.kHeadingTextStyle,
+              ),
+              Text(
+                'Shows percentage of questions answered correctly',
+                style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
+              ),
+              Utils().sizedBox,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      SvgPicture.asset('images/Group 3401.svg'),
+                      Text(
+                        '80',
+                        style: AppFont.kHeadingTextStyle.copyWith(
+                          color: AppColor.kWhite,
+                        ),
+                      )
+                    ],
+                  ),
+                  Utils().sizedBox,
+                  //Accuracy text and question ---------------------------------
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Text(
+                              'Attempted question : ',
+                              style: AppFont.kBodyTextStyle.copyWith(
+                                color: AppColor.kGrey,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              '10', // total question -----------------------
+                              style: AppFont.kBodyTextStyle.copyWith(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Correct answer : ',
+                            style: AppFont.kBodyTextStyle.copyWith(
+                              color: AppColor.kGrey,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            '8', // total question -----------------------
+                            style: AppFont.kBodyTextStyle.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               Utils().sizedBox,
               // Suggestions ---------------------------------------
               const Text(
@@ -240,7 +265,7 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 style: AppFont.kHeadingTextStyle,
               ),
               Text(
-                'Personalised suggestions based on your report',
+                'Personalised suggestions based on your report ',
                 style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
               ),
               Utils().sizedBox,

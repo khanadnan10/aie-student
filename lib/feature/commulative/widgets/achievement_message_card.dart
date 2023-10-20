@@ -49,17 +49,14 @@ class AchievementMessageCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Flexible(
-                child: AspectRatio(
-                  aspectRatio: 8 / 4,
-                  child: Image(
-                    image: image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              Image(
+                height:
+                    63.0, // Magic Number used according to the figma size ---
+                image: image,
+                fit: BoxFit.cover,
               ),
               Utils(width: 12.0).sizedBox,
-              Expanded(
+              Flexible(
                 child: Text(
                   text,
                   style: AppFont.kHeadingLightTextStyle.copyWith(
