@@ -64,11 +64,11 @@ class GradeSmallCard extends StatelessWidget {
                   Text(
                     perRate,
                     style: AppFont.kHeadingTextStyle
-                        .copyWith(color: AppColor.kGreen, letterSpacing: 1),
+                        .copyWith(color: AppColor.kLiteGreen, letterSpacing: 1),
                   ),
                   const Icon(
                     Icons.arrow_upward_rounded,
-                    color: AppColor.kGreen,
+                    color: AppColor.kLiteGreen,
                     size: 20.0,
                   )
                 ],

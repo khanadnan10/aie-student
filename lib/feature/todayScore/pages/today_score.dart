@@ -1,8 +1,14 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:student_ui/common/common_appbar.dart';
+import 'package:student_ui/feature/commulative/data/best_performance.dart';
+import 'package:student_ui/feature/commulative/data/pie_data.dart';
 import 'package:student_ui/feature/commulative/widgets/achievement_message_card.dart';
+import 'package:student_ui/feature/commulative/widgets/best_performance_bar_chart.dart';
+import 'package:student_ui/feature/commulative/widgets/total_grade_pie_chart.dart';
 import 'package:student_ui/feature/todayScore/data/data.dart';
 import 'package:student_ui/feature/todayScore/widgets/all_subject_card.dart';
+import 'package:student_ui/utils/colors.dart';
 import 'package:student_ui/utils/fonts.dart';
 import 'package:student_ui/utils/utils.dart';
 
@@ -16,6 +22,8 @@ class TodayScore extends StatefulWidget {
 class _TodayScoreState extends State<TodayScore> {
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: CommonAppbar(
         boxRequired: false,
@@ -33,15 +41,66 @@ class _TodayScoreState extends State<TodayScore> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Total Grade section ==============================================
-              const Text(
-                'Total Grade',
-                style: AppFont.kHeadingTextStyle,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Today's Grade",
+                    style: AppFont.kHeadingTextStyle,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '82%',
+                        softWrap: true,
+                        textAlign: TextAlign.start,
+                        style: AppFont.kLargeTopic40TextStyle.copyWith(
+                          color: AppColor.kRed,
+                        ),
+                      ),
+                      Utils(width: 5).sizedBox,
+                      Text(
+                        '2.14',
+                        style: AppFont.kHeadingTextStyle
+                            .copyWith(color: AppColor.kGreen, letterSpacing: 1),
+                      ),
+                      const Icon(
+                        Icons.arrow_upward_rounded,
+                        color: AppColor.kGreen,
+                        size: 20.0,
+                      )
+                    ],
+                  ),
+                ],
               ),
               Utils().sizedBox,
               // Pie chart representation of grades
-              const Placeholder(
-                fallbackHeight: 300,
-                child: Center(child: Text('Pie Chart')),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.3,
+                // Change the piechart values here -----------------------------
+                child: TotalGradeChart(
+                    sections: PieData.data
+                        .asMap()
+                        .map<int, PieChartSectionData>((index, data) {
+                          final value = PieChartSectionData(
+                            color: data.color,
+                            value: data.percent,
+                            title: '${data.percent.toInt()}',
+                            radius: data.percent.toInt() > 100
+                                ? data.percent - 20
+                                : data.percent,
+                            titleStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          );
+                          return MapEntry(index, value);
+                        })
+                        .values
+                        .toList()),
               ),
               Utils().sizedBox,
               Utils().sizedBox,
@@ -81,11 +140,29 @@ class _TodayScoreState extends State<TodayScore> {
               ),
               // bar chart representation of grades
               Utils().sizedBox,
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(child: Text('bar Chart')),
+              Container(
+                height: screenSize.height * 0.3,
+                // width: screenSize.width,
+                decoration: BoxDecoration(
+                  color: const Color(0xffEBE4F5).withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: bestPerformance
+                      .map(
+                        (e) => BestPerformanceBarChart(
+                          isVisible: false,
+                          gradient: e['gradient'],
+                          percent: e['percent'],
+                          text: e['text'],
+                        ),
+                      )
+                      .toList(),
+                ),
               ),
-              Utils().sizedBox,
             ],
           ),
         ),

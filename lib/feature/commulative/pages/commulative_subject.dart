@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_circular_progress_indicator/gradient_circular_progress_indicator.dart';
 
@@ -8,6 +9,8 @@ import 'package:student_ui/common/enum.dart';
 import 'package:student_ui/feature/commulative/data/performance.dart';
 import 'package:student_ui/feature/commulative/data/scoresmallcard.dart';
 import 'package:student_ui/feature/commulative/data/suggestion.dart';
+import 'package:student_ui/feature/commulative/widgets/createLineChartBar.dart';
+import 'package:student_ui/feature/commulative/widgets/performance_graph.dart';
 import 'package:student_ui/feature/commulative/widgets/score_small_card.dart';
 import 'package:student_ui/feature/commulative/widgets/suggestion_text.dart';
 import 'package:student_ui/feature/commulative/widgets/total_grade_gradient_text.dart';
@@ -98,9 +101,17 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 style: AppFont.kBodyTextStyle.copyWith(color: AppColor.kGrey),
               ),
               Utils().sizedBox,
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(child: Text('Line Chart')),
+              Performancegraph(
+                commulativeLineChartBarData: [
+                  createLineChartBarData([
+                    const FlSpot(-1.0, 1),
+                    const FlSpot(0, 1),
+                    const FlSpot(2.2, 3),
+                    const FlSpot(4.9, 5),
+                    const FlSpot(6.8, 3),
+                    const FlSpot(8, 4),
+                  ], AppColor.kBlue),
+                ],
               ),
               // your monthly performance graph ----------------------------------
               Utils().sizedBox,
@@ -111,13 +122,17 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
                 ),
               ),
               Utils().sizedBox,
-              const Placeholder(
-                fallbackHeight: 200,
-                child: Center(
-                  child: Text(
-                    'Line Chart',
-                  ),
-                ),
+              Performancegraph(
+                commulativeLineChartBarData: [
+                  createLineChartBarData([
+                    const FlSpot(-1.0, 1),
+                    const FlSpot(0, 1),
+                    const FlSpot(2.2, 3),
+                    const FlSpot(4.9, 5),
+                    const FlSpot(6.8, 3),
+                    const FlSpot(8, 4),
+                  ], AppColor.kBlue),
+                ],
               ),
               Utils().sizedBox,
               // Performace in MCQ types ---------------------------------------

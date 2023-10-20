@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:student_ui/feature/classwork/pages/classwork.dart';
 import 'package:student_ui/feature/commulative/pages/commulative.dart';
 import 'package:student_ui/feature/commulative/pages/commulative_subject.dart';
 import 'package:student_ui/feature/gradeSummary/pages/grade_summary.dart';
+import 'package:student_ui/feature/gradecard/pages/grade_card.dart';
+import 'package:student_ui/feature/homeworktype/pages/home_work_type.dart';
 import 'package:student_ui/feature/subject/pages/archive_subject.dart';
 import 'package:student_ui/feature/subject/pages/commulative_subject_extra.dart';
+import 'package:student_ui/feature/testInstruction/pages/test_instruction.dart';
+import 'package:student_ui/feature/testPage/pages/test.dart';
 import 'package:student_ui/feature/todayScore/pages/today_score.dart';
 
 void main() {
@@ -23,7 +28,8 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
         useMaterial3: true,
       ),
-      home: const GradeSummary(),
+      home:
+          const GradeSummary(), // Commulative --------------------------------
     );
   }
 }
