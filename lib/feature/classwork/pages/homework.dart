@@ -50,7 +50,7 @@ class _HomeworkState extends State<Homework> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 for (int i = 0; i < homeworkToggleScreens.length; i++)
-                  ClassworkToggleSwitch(
+                  screenChipToggle(
                     isSmall: true,
                     index: i,
                     currentIndex: _currentIndex,

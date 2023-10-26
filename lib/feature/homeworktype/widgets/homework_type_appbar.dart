@@ -7,6 +7,7 @@ Widget homeworkTypeAppbar({
   String? subTitle,
   String? title,
   ImageProvider<Object>? image,
+  BoxFit? fit,
   Gradient? gradient,
   bool? backgroundImage = false,
 }) {
@@ -62,7 +63,7 @@ Widget homeworkTypeAppbar({
           Expanded(
             child: Image(
               image: image ?? const AssetImage(''),
-              fit: BoxFit.contain,
+              fit: fit ?? BoxFit.contain,
             ),
           )
         ],

@@ -31,7 +31,7 @@ class _TodayScoreState extends State<TodayScore> {
           // Navigate to previous page ---------
           Navigator.pop(context);
         },
-        text: 'Grade Card',
+        centerTitle: 'Grade Card',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

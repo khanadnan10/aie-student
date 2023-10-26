@@ -31,7 +31,7 @@ class _ArchiveSubjectState extends State<ArchiveSubject> {
         },
         boxRequired: true,
         gradient: AppColor.kReverseSkyGradient,
-        isBackgroundImage: true,
+        enableBackgroundImage: true,
         image: const AssetImage(
           'images/juicy-young-man-looks-at-his-watch-during-an-exam 1.png',
         ),
@@ -49,7 +49,7 @@ class _ArchiveSubjectState extends State<ArchiveSubject> {
               'Archive homeworks',
               style: AppFont.kHeadingTextStyle,
             ),
-            Utils().sizedBox, 
+            Utils().sizedBox,
             _submittedHomeworkMenuItems(),
             Utils().sizedBox,
             ListView.builder(

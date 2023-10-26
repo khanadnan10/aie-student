@@ -31,7 +31,6 @@ class _ClassworkState extends State<Classwork> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: ClassworkAppbar(
         onTap: () {
@@ -55,7 +54,9 @@ class _ClassworkState extends State<Classwork> {
         ),
         child: Column(
           children: [
-            // Toggle of homework, exams, gradecard -----------
+            //----------------------------------------
+            // Toggle of homework, exams, gradecard
+            //----------------------------------------
             Container(
               padding: const EdgeInsets.all(2.0),
               margin: const EdgeInsets.only(bottom: 5.0),
@@ -67,7 +68,7 @@ class _ClassworkState extends State<Classwork> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: ClassworkToggleSwitch(
+                    child: screenChipToggle(
                       index: 0,
                       currentIndex: _currentIndex,
                       text: 'Homework',
@@ -80,7 +81,7 @@ class _ClassworkState extends State<Classwork> {
                     ),
                   ),
                   Expanded(
-                    child: ClassworkToggleSwitch(
+                    child: screenChipToggle(
                       index: 1,
                       currentIndex: _currentIndex,
                       text: 'Test',
@@ -93,7 +94,7 @@ class _ClassworkState extends State<Classwork> {
                     ),
                   ),
                   Expanded(
-                    child: ClassworkToggleSwitch(
+                    child: screenChipToggle(
                       index: 2,
                       currentIndex: _currentIndex,
                       text: 'Gradecard',
@@ -113,9 +114,11 @@ class _ClassworkState extends State<Classwork> {
                 physics: const NeverScrollableScrollPhysics(),
                 controller: _classworkPageController,
                 onPageChanged: (value) {
-                  setState(() {
-                    _currentIndex = value;
-                  });
+                  setState(
+                    () {
+                      _currentIndex = value;
+                    },
+                  );
                 },
                 itemCount: classworkScreens.length,
                 itemBuilder: (context, index) {

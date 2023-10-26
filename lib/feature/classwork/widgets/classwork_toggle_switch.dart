@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import 'package:student_ui/utils/colors.dart';
 
-class ClassworkToggleSwitch extends StatelessWidget {
+class screenChipToggle extends StatelessWidget {
   final int index;
   final int currentIndex;
   final String text;
   final VoidCallback onTap;
   final bool? isSmall;
-  const ClassworkToggleSwitch({
+  const screenChipToggle({
     Key? key,
     required this.index,
     required this.currentIndex,

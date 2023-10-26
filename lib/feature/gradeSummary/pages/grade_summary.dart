@@ -32,7 +32,7 @@ class _GradeSummaryState extends State<GradeSummary> {
           // Navigate to previous page ---------
           Navigator.pop(context);
         },
-        text: 'Grade Summary',
+        centerTitle: 'Grade Summary',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),

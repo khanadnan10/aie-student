@@ -13,7 +13,7 @@ class SubjectExtra extends StatefulWidget {
 
   @override
   State<SubjectExtra> createState() => _SubjectExtraState();
-} 
+}
 
 class _SubjectExtraState extends State<SubjectExtra> {
   @override
@@ -26,7 +26,7 @@ class _SubjectExtraState extends State<SubjectExtra> {
         },
         boxRequired: true,
         gradient: AppColor.kPinkGradient,
-        isBackgroundImage: true,
+        enableBackgroundImage: true,
         image: const AssetImage(
           'images/juicy-young-man-looks-at-his-watch-during-an-exam 1.png',
         ),

@@ -9,10 +9,11 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
   final String? subTitle;
   final ImageProvider<Object>? image;
   final Gradient? gradient;
-  final String? text;
+  final String? centerTitle;
   final VoidCallback onIconTap;
+  final BoxFit? fit;
   final bool? boxRequired;
-  final bool? isBackgroundImage;
+  final bool? enableBackgroundImage;
   final Color? leadingColor;
   const CommonAppbar({
     Key? key,
@@ -21,10 +22,11 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
     this.subTitle,
     this.image,
     this.gradient,
-    this.text,
+    this.centerTitle,
     required this.onIconTap,
+    this.fit,
     this.boxRequired = true,
-    this.isBackgroundImage = false,
+    this.enableBackgroundImage = false,
     this.leadingColor,
   }) : super(key: key);
 
@@ -34,7 +36,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
       scrolledUnderElevation: 0,
       toolbarHeight: kToolbarHeight,
       title: Text(
-        text ?? '',
+        centerTitle ?? '',
         style: const TextStyle(
           color: AppColor.kGrey,
           fontSize: 16.0,
@@ -47,7 +49,8 @@ class CommonAppbar extends StatelessWidget implements PreferredSize {
               subTitle: subTitle,
               gradient: gradient,
               image: image,
-              backgroundImage: isBackgroundImage,
+              fit: fit,
+              backgroundImage: enableBackgroundImage,
             )
           : null,
       centerTitle: true,

@@ -37,7 +37,7 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
         },
         boxRequired: true,
         gradient: AppColor.kReverseSkyGradient,
-        isBackgroundImage: true,
+        enableBackgroundImage: true,
         image: const AssetImage(
           'images/juicy-young-man-looks-at-his-watch-during-an-exam 1.png',
         ),

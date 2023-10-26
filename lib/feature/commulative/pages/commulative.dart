@@ -31,7 +31,7 @@ class _CommulativeState extends State<Commulative> {
           // Navigate to previous page ---------
           Navigator.pop(context);
         },
-        text: 'Grade card',
+        centerTitle: 'Grade card',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
