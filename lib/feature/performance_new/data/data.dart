@@ -1,5 +1,30 @@
 import 'package:flutter/material.dart';
 
+List<Map<String, dynamic>> performanceSliderData = [
+  {
+    'title': 'Activity Time',
+    'text': '5',
+    'measure': 'hr/day',
+    'value': '42',
+  },
+  {
+    'title': 'Accuracy',
+    'text': '82',
+    'measure': '%',
+    'value': '42',
+  },
+  {
+    'title': 'Speed',
+    'text': '1',
+    'measure': 'm/que',
+    'value': '42',
+  },
+];
+
+List<String> learningGraphTextData = [
+  'Hurray! You are achieving heights in maths & computer',
+  'You need to give more time for Hindi and English'
+];
 List<String> aiRecommendationData = [
   'Hurray! You are achieving heights in maths',
   'You need to pay attention to Science, your performance is droping heavily. Spent more time and notify your teacher',

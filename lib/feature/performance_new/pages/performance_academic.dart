@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_ui/feature/classwork/widgets/classwork_toggle_switch.dart';
 import 'package:student_ui/feature/performance_new/data/data.dart';
-import 'package:student_ui/feature/performance_new/pages/subjects_all.dart';
+import 'package:student_ui/feature/performance_new/pages/academic_subjects_all.dart';
 import 'package:student_ui/feature/performance_new/widgets/grade_card_results_table.dart';
 
 import 'package:student_ui/utils/colors.dart';
@@ -20,7 +20,7 @@ class _PerformanceAcademicState extends State<PerformanceAcademic> {
   int _currentIndex = 0;
   final PageController _subjectsPageController = PageController();
   List<Widget> subjectsScreens = [
-    const SubjectsAll(),
+    const AcademicSubjectsAll(),
     const Center(child: Text('Maths')),
     const Center(child: Text('English')),
     const Center(child: Text('Hindi')),

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:student_ui/utils/colors.dart';
 import 'package:student_ui/utils/fonts.dart';
 
-class AiRecommendationTextCard extends StatelessWidget {
+class RecommendationTextCard extends StatelessWidget {
   final String text;
-  const AiRecommendationTextCard({
+  const RecommendationTextCard({
     Key? key,
     required this.text,
   }) : super(key: key);
