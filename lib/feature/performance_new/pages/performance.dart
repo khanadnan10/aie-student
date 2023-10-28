@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_ui/feature/classwork/widgets/classwork_toggle_switch.dart';
 import 'package:student_ui/feature/performance_new/pages/performance_academic.dart';
 import 'package:student_ui/feature/performance_new/pages/performance_conceptual.dart';
+import 'package:student_ui/feature/performance_new/pages/performance_learnings.dart';
 import 'package:student_ui/utils/colors.dart';
 
 class Performance extends StatefulWidget {
@@ -17,9 +18,7 @@ class _PerformanceState extends State<Performance> {
   List<Widget> performanceScreens = [
     const PerformanceAcademic(),
     const PerformanceConceptual(),
-    const Center(
-      child: Text('Learnings'),
-    ),
+    const PerformanceLearnings(),
   ];
 
   List<String> performanceScreenText = [

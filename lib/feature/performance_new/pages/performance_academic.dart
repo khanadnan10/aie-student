@@ -21,10 +21,14 @@ class _PerformanceAcademicState extends State<PerformanceAcademic> {
   final PageController _subjectsPageController = PageController();
   List<Widget> subjectsScreens = [
     const AcademicSubjectsAll(),
-    const Center(child: Text('Maths')),
-    const Center(child: Text('English')),
-    const Center(child: Text('Hindi')),
-    const Center(child: Text('Social Science')),
+    const AcademicSubjectsAll(),
+    const AcademicSubjectsAll(),
+    const AcademicSubjectsAll(),
+    const AcademicSubjectsAll(),
+    // const Center(child: Text('Maths')),
+    // const Center(child: Text('English')),
+    // const Center(child: Text('Hindi')),
+    // const Center(child: Text('Social Science')),
   ];
 
   List<String> subjectScreensText = [

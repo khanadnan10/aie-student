@@ -1,5 +1,58 @@
 import 'package:flutter/material.dart';
 
+List<Map<String, dynamic>> leaderBoardData = [
+  {
+    'image': 'images/Img - 01.png',
+    'name': 'Kavita Bhatia',
+    'percent': '93.2',
+  },
+  {
+    'image': 'images/Img - 01.png',
+    'name': 'Kajal Bhatia',
+    'percent': '92.2',
+  },
+  {
+    'image': 'images/Img - 01.png',
+    'name': 'Uttara Bhatia',
+    'percent': '91.2',
+  },
+  {
+    'image': 'images/Img - 01.png',
+    'name': 'Nikita Bhatia',
+    'percent': '87.2',
+  },
+];
+
+List<String> suggestionTextData = [
+  'Your test performance needs more effort and hardwork',
+  'Practise all type of questios to improve conceptual understanding and accuracy while answering.',
+];
+
+List<String> filterChipData = [
+  'All',
+  'MCQ\'s',
+  'FITB\'s',
+  'M-MCQ\'s',
+];
+
+List<String> recommedationMessageData = [
+  'Stay focused to maintain your grade',
+  'Increase your accuracy to perform better, send more time in understanding the concepts',
+  'Your speed is very good, maintain this and your score will never get down.',
+];
+
+List<Map<String, dynamic>> aiRecommendationPerformanceCardData = [
+  {
+    'list': performanceSliderData,
+    'cgpa': '9.2',
+    'percent': '90',
+  },
+  {
+    'list': performanceSliderData,
+    'cgpa': '9.5',
+    'percent': '80',
+  },
+];
 List<Map<String, dynamic>> performanceSliderData = [
   {
     'title': 'Activity Time',
@@ -88,7 +141,7 @@ List<Map<String, dynamic>> statsData = [
   {
     'title': 'Doubt Cleared',
     'body': ' 26',
-    'icon': Icons.question_mark_outlined,
+    'icon': Icons.contact_support,
   },
   {
     'title': 'Test attempted',
@@ -99,6 +152,50 @@ List<Map<String, dynamic>> statsData = [
     'title': 'Total activity time',
     'body': ' 310',
     'icon': Icons.ballot_rounded,
+  },
+];
+List<Map<String, dynamic>> conceptualStatsData = [
+  {
+    'title': 'Total Topic Learnings',
+    'body': ' 310 hours',
+    'icon': Icons.access_time_filled_outlined,
+  },
+  {
+    'title': 'Concept clarification',
+    'body': ' 26',
+    'icon': Icons.contact_support,
+  },
+  {
+    'title': 'Practice Test',
+    'body': ' 24',
+    'icon': Icons.book_sharp,
+  },
+  {
+    'title': 'Competitive Ques',
+    'body': ' 310',
+    'icon': Icons.ballot_rounded,
+  },
+];
+List<Map<String, dynamic>> learningStatsData = [
+  {
+    'title': 'Learning Time',
+    'body': ' 310 hours',
+    'icon': Icons.access_time_filled_outlined,
+  },
+  {
+    'title': 'Feed Count',
+    'body': ' 26',
+    'icon': Icons.feed,
+  },
+  {
+    'title': 'Daily Rewards',
+    'body': ' 24',
+    'icon': Icons.emoji_events,
+  },
+  {
+    'title': 'Competitive Ques',
+    'body': ' 310',
+    'icon': Icons.chrome_reader_mode_rounded,
   },
 ];
 

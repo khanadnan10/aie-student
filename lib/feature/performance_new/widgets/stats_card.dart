@@ -23,7 +23,7 @@ class StatsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24.0),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Icon(
             icon,

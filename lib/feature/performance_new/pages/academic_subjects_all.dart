@@ -51,9 +51,72 @@ class AcademicSubjectsAll extends StatelessWidget {
           //----------------------------------------
           // TODO: Your activity time
           //----------------------------------------
+          const Text(
+            'Your activity Time',
+            style: AppFont.kHeadingTextStyle,
+          ),
+          Text(
+            'Your daily Time spent on App graph',
+            style: AppFont.kBodyTextStyle.copyWith(
+              color: AppColor.kGrey,
+            ),
+          ),
+          Utils().sizedBox,
+          Row(
+            children: [
+              const Flexible(
+                child: Image(
+                  height: 70.0,
+                  image: AssetImage(
+                    'images/business-3d-red-clock 1.png',
+                  ),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Learning Time: ',
+                          style: AppFont.kHeadingTextStyle.copyWith(
+                            color: AppColor.kGrey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '324 hours 23 min',
+                          style: AppFont.kHeadingTextStyle.copyWith(
+                            color: AppColor.kBlack,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Text(
+                    'Since 21 Oct 2022',
+                    style: AppFont.kSmallTextStyle,
+                  )
+                ],
+              )
+            ],
+          ),
+          Utils().sizedBox,
           //----------------------------------------
           // TODO: Accuracy
           //----------------------------------------
+          const Text(
+            'Accuracy',
+            style: AppFont.kHeadingTextStyle,
+          ),
+          Text(
+            'Shows percentage of questions answered correctly',
+            style: AppFont.kBodyTextStyle.copyWith(
+              color: AppColor.kGrey,
+            ),
+          ),
+          Utils().sizedBox,
           //----------------------------------------
           // TODO: Learning Memory
           //----------------------------------------

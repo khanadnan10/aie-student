@@ -16,10 +16,14 @@ class _PerformanceConceptualState extends State<PerformanceConceptual> {
   final PageController _conceptualPageController = PageController();
   List<Widget> conceptualSubjectsScreens = [
     const ConceptualSubjectsAll(),
-    const Center(child: Text('Maths')),
-    const Center(child: Text('English')),
-    const Center(child: Text('Hindi')),
-    const Center(child: Text('Social Science')),
+    const ConceptualSubjectsAll(),
+    const ConceptualSubjectsAll(),
+    const ConceptualSubjectsAll(),
+    const ConceptualSubjectsAll(),
+    // const Center(child: Text('Maths')),
+    // const Center(child: Text('English')),
+    // const Center(child: Text('Hindi')),
+    // const Center(child: Text('Social Science')),
   ];
 
   List<String> conceptualSubjectsScreensText = [
