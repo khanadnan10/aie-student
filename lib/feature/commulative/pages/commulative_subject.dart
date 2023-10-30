@@ -102,6 +102,7 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
               ),
               Utils().sizedBox,
               Performancegraph(
+                showTitleData: true,
                 commulativeLineChartBarData: [
                   createLineChartBarData([
                     const FlSpot(-1.0, 1),
@@ -123,6 +124,7 @@ class _CommulativeSubjectState extends State<CommulativeSubject> {
               ),
               Utils().sizedBox,
               Performancegraph(
+                showTitleData: true,
                 commulativeLineChartBarData: [
                   createLineChartBarData([
                     const FlSpot(-1.0, 1),

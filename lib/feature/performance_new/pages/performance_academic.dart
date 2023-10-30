@@ -74,6 +74,7 @@ class _PerformanceAcademicState extends State<PerformanceAcademic> {
                   ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: gradeSubjectTableResults.length,
                     itemBuilder: (context, index) {
                       final subjectData = gradeSubjectTableResults[index];

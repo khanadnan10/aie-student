@@ -14,7 +14,7 @@ class BestPerformanceBarChart extends StatefulWidget {
     Key? key,
     required this.gradient,
     required this.percent,
-    required this.text,
+    this.text = '',
     required this.isVisible,
   }) : super(key: key);
 

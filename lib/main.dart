@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:student_ui/feature/commulative/pages/commulative.dart';
 import 'package:student_ui/feature/performance_new/pages/performance.dart';
 
 void main() {

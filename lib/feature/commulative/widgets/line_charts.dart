@@ -1,13 +1,25 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import 'package:student_ui/utils/colors.dart';
 
 class CustomLineChartbar extends StatelessWidget {
   final List<LineChartBarData> lineChartBarData;
+  final bool? showTitleData;
+  final bool? showGridData;
+  final String? preTouchSpot;
+  final bool? isMultibars;
+
+  final String? postTouchSpot;
   const CustomLineChartbar({
     Key? key,
     required this.lineChartBarData,
+    this.showTitleData,
+    this.showGridData,
+    this.preTouchSpot,
+    this.isMultibars = false,
+    this.postTouchSpot,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -24,7 +36,7 @@ class CustomLineChartbar extends StatelessWidget {
           touchTooltipData: LineTouchTooltipData(
             tooltipBgColor: AppColor.kGreen,
             tooltipRoundedRadius: 20.0,
-            showOnTopOfTheChartBoxArea: true,
+            showOnTopOfTheChartBoxArea: false,
             fitInsideHorizontally: true,
             tooltipMargin: 0,
             getTooltipItems: (touchedSpots) => touchedSpots
@@ -32,18 +44,18 @@ class CustomLineChartbar extends StatelessWidget {
                 .entries
                 .map(
                   (e) => LineTooltipItem(
-                    '${'${e.value.spotIndex}0'}%',
+                    '${'${e.value.spotIndex} ${preTouchSpot ?? 'min'}'}${postTouchSpot ?? '%'}',
                     const TextStyle(color: Colors.white),
                   ),
                 )
                 .toList(),
           ),
         ),
-        maxX: 5,
+        maxX: 8,
         minY: 0,
-        maxY: 4,
+        maxY: isMultibars == false ? 6 : 4,
         gridData: FlGridData(
-          show: true,
+          show: showGridData ?? true,
           getDrawingHorizontalLine: (value) {
             return const FlLine(
               color: AppColor.kGrey,
@@ -55,7 +67,7 @@ class CustomLineChartbar extends StatelessWidget {
           drawVerticalLine: false,
         ),
         titlesData: FlTitlesData(
-          show: true,
+          show: showTitleData ?? true,
           bottomTitles: const AxisTitles(
             drawBelowEverything: false,
           ),

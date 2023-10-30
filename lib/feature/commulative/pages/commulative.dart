@@ -7,6 +7,7 @@ import 'package:student_ui/feature/commulative/data/pie_data.dart';
 import 'package:student_ui/feature/commulative/widgets/achievement_message_card.dart';
 import 'package:student_ui/feature/commulative/widgets/all_subject_card.dart';
 import 'package:student_ui/feature/commulative/widgets/best_performance_bar_chart.dart';
+import 'package:student_ui/feature/commulative/widgets/createLineChartBar.dart';
 import 'package:student_ui/feature/commulative/widgets/subject_performance_graph.dart';
 import 'package:student_ui/feature/commulative/widgets/total_grade_pie_chart.dart';
 import 'package:student_ui/utils/colors.dart';
@@ -40,7 +41,9 @@ class _CommulativeState extends State<Commulative> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /*----------------------------------------
               // Total Grade section ==============================================
+              -----------------------------------------*/
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,7 +117,41 @@ class _CommulativeState extends State<Commulative> {
               ),
               Utils().sizedBox,
               // Line chart representation of grades
-              SubjectPerformancegraph(size: screenSize),
+              SubjectPerformancegraph(
+                lineChartBarData: [
+                  createLineChartBarData([
+                    const FlSpot(-1.0, 1),
+                    const FlSpot(0, 1),
+                    const FlSpot(2.2, 3),
+                    const FlSpot(4.9, 5),
+                    const FlSpot(6.8, 3),
+                    const FlSpot(8, 4),
+                  ], AppColor.kBlue),
+                  createLineChartBarData(
+                    [
+                      const FlSpot(-1, 0.2),
+                      const FlSpot(1, 4),
+                      const FlSpot(2.2, 2.8),
+                      const FlSpot(4, 5.5),
+                      const FlSpot(5, 3.8),
+                      const FlSpot(6, 4.5),
+                      const FlSpot(11, 4),
+                    ],
+                    AppColor.kYellow,
+                  ),
+                  createLineChartBarData(
+                    [
+                      const FlSpot(-1, 1.5),
+                      const FlSpot(1, 4),
+                      const FlSpot(2.2, 2.8),
+                      const FlSpot(3.3, 3.5),
+                      const FlSpot(5, 3.8),
+                      const FlSpot(6.2, 6.5),
+                    ],
+                    AppColor.kPurple,
+                  ),
+                ],
+              ),
               Utils().sizedBox,
               const Text(
                 'All Subject',

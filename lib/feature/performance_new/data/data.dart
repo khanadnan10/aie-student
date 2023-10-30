@@ -1,5 +1,71 @@
 import 'package:flutter/material.dart';
 
+List<Map<String, dynamic>> speedData = [
+  {
+    'text': 'Total question attempted',
+    'body': '580',
+  },
+  {
+    'text': 'Time taken',
+    'body': '22 min',
+  },
+  {
+    'text': 'Average time/question',
+    'body': '1 min/ques',
+  },
+];
+
+List<Map<String, dynamic>> timeAnalysisData = [
+  {
+    'text': 'Total Test Time',
+    'body': '30 min',
+  },
+  {
+    'text': 'Time taken',
+    'body': '22 min',
+  },
+  {
+    'text': 'Average time/question',
+    'body': '1 min',
+  },
+];
+List<Map<String, dynamic>> accuracyData = [
+  {
+    'text': 'Total Question',
+    'body': '600',
+  },
+  {
+    'text': 'Questions attempted',
+    'body': '580',
+  },
+  {
+    'text': 'Correct answers',
+    'body': '452',
+  },
+];
+List<Map<String, dynamic>> allTypeQuestionData = [
+  {
+    'text': 'Total Question',
+    'body': '600',
+  },
+  {
+    'text': 'Questions attempted',
+    'body': '580',
+  },
+  {
+    'text': 'Unattempted questions',
+    'body': '580',
+  },
+  {
+    'text': 'Correct answers',
+    'body': '452',
+  },
+  {
+    'text': 'Incorrect answers',
+    'body': '452',
+  },
+];
+
 List<Map<String, dynamic>> leaderBoardData = [
   {
     'image': 'images/Img - 01.png',

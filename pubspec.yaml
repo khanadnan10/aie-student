@@ -35,6 +35,7 @@ dependencies:
   flutter_svg: ^2.0.7
   google_fonts: ^6.1.0
   gradient_circular_progress_indicator: ^0.0.4
+  syncfusion_flutter_gauges: ^23.1.42
 
 dev_dependencies:
   flutter_lints: ^2.0.0

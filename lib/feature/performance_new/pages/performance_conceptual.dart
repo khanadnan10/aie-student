@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_ui/feature/classwork/widgets/classwork_toggle_switch.dart';
-import 'package:student_ui/feature/performance_new/pages/coceptual_subjects_all.dart';
+import 'package:student_ui/feature/performance_new/pages/conceptual_subjects_all.dart';
 import 'package:student_ui/utils/fonts.dart';
 import 'package:student_ui/utils/utils.dart';
 
@@ -42,61 +42,62 @@ class _PerformanceConceptualState extends State<PerformanceConceptual> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: ListView(
-        children: [
-          const Text(
+    return ListView(
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
             'Subjects',
             style: AppFont.kHeadingTextStyle,
           ),
-          Utils().sizedBox,
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50.0),
-            ),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  for (int i = 0; i < conceptualSubjectsScreensText.length; i++)
-                    screenChipToggle(
-                      isSmall: true,
-                      index: i,
-                      currentIndex: _currentIdxConceptual,
-                      text: conceptualSubjectsScreensText[i],
-                      onTap: () {
-                        setState(() {
-                          _currentIdxConceptual = i;
-                        });
-                        _conceptualPageController
-                            .jumpToPage(_currentIdxConceptual);
-                      },
-                    ),
-                ],
-              ),
+        ),
+        Utils().sizedBox,
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                for (int i = 0; i < conceptualSubjectsScreensText.length; i++)
+                  screenChipToggle(
+                    isSmall: true,
+                    index: i,
+                    currentIndex: _currentIdxConceptual,
+                    text: conceptualSubjectsScreensText[i],
+                    onTap: () {
+                      setState(() {
+                        _currentIdxConceptual = i;
+                      });
+                      _conceptualPageController
+                          .jumpToPage(_currentIdxConceptual);
+                    },
+                  ),
+              ],
             ),
           ),
-          Utils().sizedBox,
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: PageView.builder(
-              controller: _conceptualPageController,
-              onPageChanged: (value) {
-                setState(() {
-                  _currentIdxConceptual = value;
-                });
-              },
-              itemCount: conceptualSubjectsScreens.length,
-              itemBuilder: (context, index) {
-                return conceptualSubjectsScreens[index];
-              },
-            ),
+        ),
+        Utils().sizedBox,
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: PageView.builder(
+            controller: _conceptualPageController,
+            onPageChanged: (value) {
+              setState(() {
+                _currentIdxConceptual = value;
+              });
+            },
+            itemCount: conceptualSubjectsScreens.length,
+            itemBuilder: (context, index) {
+              return conceptualSubjectsScreens[index];
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
